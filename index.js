@@ -1,41 +1,52 @@
 const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 require('dotenv').config()
 const client = new Discord.Client({
     intents: [
         "GUILDS",
         "GUILD_MESSAGES",
-        "GUILD_MEMBERS" 
+        "GUILD_MEMBERS",
+        "GUILD_BANS",
     ]
 })
+const PREFIX = '!';
 
-let bot = {
-    client,
-    prefix: "n.",
-    owners: ['451806721011220481']
-}
 
-client.commands = new Discord.Collection();
-client.events = new Discord.Collection();
+client.on('ready', () => {
+    console.log('The bot is online')
+});
 
-client.loadEvents = (bot, reload) => require('./Handlers/events')(bot, reload)
-client.loadEvents(bot, false )
+client.on('message', (message) => {
+    let args = message.content.substring(PREFIX.length).split(" ");
 
-module.exports = bot
+    switch(args[0]){
+        case 'ping':
+            message.channel.send('pong!');
+            break;
+        case 'website':
+            message.reply('youtube.com');
+            break;
+        case 'info':
+            if(args[1] === 'version'){
+                message.channel.send('version 1.2'); 
+            }  else {
+                message.reply('This comman does not exsist!')
+            }
+            break;
+        case 'clear':
+            if(!args[1]) return message.reply('Please specify how many you want to delete');
+            message.channel.bulkDelete(args[1]);
+            break;
+        case 'embed':
+            const embed = new MessageEmbed()
+                .setTitle('User Information')
+                .addField('Player name', message.author.username)
+                .setColor('#afdcec')
+                .setThumbnail('https://i.imgur.com/AfFp7pu.png')
+                message.channel.send({ embeds: [embed] });
+            break;
+    }
+});
 
-// client.on('ready', () => {
-//     console.log(`Logged in as ${client.user.tag}`)
-// })
-
-// client.on('messageCreate', (message) => {
-//     if(message.content === 'hi'){
-//         message.reply('hello')
-//     }
-// })
-
-// const welcomeChannelId = '987139870545817671'
-
-// client.on("guildMemberAdd", (member) => {
-//     member.guild.channels.cache.get(welcomeChannelId).send(`<@${member.id}> Welcome to the server!`)
-// })
 
 client.login(process.env.TOKEN);
