@@ -37,12 +37,18 @@ client.on('message', (message) => {
             if(!args[1]) return message.reply('Please specify how many you want to delete');
             message.channel.bulkDelete(args[1]);
             break;
-        case 'embed':
+        case 'cozy':
             const embed = new MessageEmbed()
-                .setTitle('User Information')
-                .addField('Player name', message.author.username)
+                .setTitle('User Gamertags')
+                .addFields(
+                    {name: 'Battlenet', value: 'something#34567', inline: true},
+                    {name: 'Activision', value: 'something#34567', inline: true},
+                    {name: 'PSN', value: 'something#34567', inline: true},
+
+                )
                 .setColor('#afdcec')
                 .setThumbnail('https://i.imgur.com/AfFp7pu.png')
+                .setFooter({ text: 'Created by cozy', iconURL: 'https://i.imgur.com/AfFp7pu.png' })
                 message.channel.send({ embeds: [embed] });
             break;
     }
