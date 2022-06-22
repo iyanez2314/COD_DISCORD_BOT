@@ -11,46 +11,34 @@ const client = new Discord.Client({ // Here we are creating the client aka bot w
 })
 const PREFIX = '!'; // The user will have to use this before any of their 
 
+const fs = require('fs');
+
+client.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands/').filter( file => file.endsWith('.js'))
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
+
+    client.commands.set(command.name, command)
+}
 
 client.on('ready', () => { // When the bot goes online the the console will let us know
     console.log('The bot is online')
 });
 
-client.on('message', (message) => { // here we are callng for the client when it receives a message from the user.
-    let args = message.content.substring(PREFIX.length).split(" "); // here we are creating a varaible that will get the prefix length and split it from the arg example => !something it will split the string and get the !
+client.on('message', message => {
+    if(!message.content.startsWith(PREFIX) || message.author.bot) return; 
 
-    // Here we will be using a switch case.
-    switch(args[0]){ // Here we are checking the arg[0] whcih should be ! if the case is !ping the bot will reply with 'pong!'
-        case 'ping':
-            message.channel.send('pong!');
-            break;
-        case 'info':
-            if(args[1] === 'version'){ // here we are checking what the second argument is in the command. This if statement will check if the second argument is version if it is we will reply with a version if they do not provide a second arg
-                message.channel.send('version 0.1'); 
-            }  else { // we will reply with this command does not exsist. 
-                message.reply('This comman does not exsist!') 
-            }
-            break;
-        case 'clear':
-            if(!args[1]) return message.reply('Please specify how many you want to delete'); // This is the clearing of any messages in the chat you may need to clear. On this line we are checking to see if the second argument of arg[1] is there if not we will let the user know they need to add a value of how many messages they need to delete
-            message.channel.bulkDelete(args[1]); // Here we are calling the bulk delete from the discord package and giving it the second argument if it does pass the first conditional statement
-            break;
-        case 'cozy': 
-            const embed = new MessageEmbed() // This is the embed message we will send to the user
-                .setTitle('User Gamertags') // Here we are setting the title of the embed 
-                .addFields( // this is adding feilds to the emebed 
-                    {name: 'Battlenet', value: 'something#34567', inline: true},
-                    {name: 'Activision', value: 'something#34567', inline: true},
-                    {name: 'PSN', value: 'something#34567', inline: true},
+    const args = message.content.slice(PREFIX.length).split(/ +/);
+    const command = args.shift().toLowerCase();
 
-                )
-                .setColor('#afdcec') // This is adding color to the emebed
-                .setThumbnail('https://i.imgur.com/AfFp7pu.png') // This is the picture that will come out in the embed
-                .setFooter({ text: 'Created by cozy', iconURL: 'https://i.imgur.com/AfFp7pu.png' }) // this will come out at the bottom of the embed
-                message.channel.send({ embeds: [embed] }); 
-            break;
+    if(command === 'ping'){
+        client.commands.get('ping').execute(message, args);
+    } else if (command === 'cozy'){
+        client.commands.get('embed').execute(message, args, Discord)
     }
-});
+})
+
 
 
 client.login(process.env.TOKEN);
