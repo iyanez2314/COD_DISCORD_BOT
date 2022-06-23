@@ -13,7 +13,7 @@ module.exports = {
         .setFooter({ text: 'Created by cozy', iconURL: 'https://i.imgur.com/AfFp7pu.png' })
         .setThumbnail('https://i.imgur.com/AfFp7pu.png');
 
-        message.channel.send({ embeds: [newEmbed] }); ;
+        message.channel.send({ embeds: [newEmbed] }); 
 
     }
 }

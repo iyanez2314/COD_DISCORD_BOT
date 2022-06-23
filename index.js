@@ -36,6 +36,8 @@ client.on('message', message => {
         client.commands.get('ping').execute(message, args);
     } else if (command === 'cozy'){
         client.commands.get('embed').execute(message, args, Discord)
+    } else if (command === 'wzcheck'){
+        client.commands.get('wzcheck').execute(client, message, args, Discord)
     }
 })
 
