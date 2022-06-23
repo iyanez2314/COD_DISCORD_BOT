@@ -3,7 +3,7 @@ const API = require("call-of-duty-api");
 const { Warzone, platforms } = require("call-of-duty-api");
 
 module.exports = {
-    name: 'wzcheck',
+    name: 'lifetime',
     description: 'This will look for the players wz stats',
     async execute(client, message, args, Discord){
         if(!args[0]) return message.channel.send('Please enter a players gammer tag');
