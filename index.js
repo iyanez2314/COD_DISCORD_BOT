@@ -38,6 +38,8 @@ client.on('message', message => {
         client.commands.get('embed').execute(message, args, Discord)
     } else if (command === 'lifetime'){
         client.commands.get('lifetime').execute(client, message, args, Discord)
+    } else if (command === 'daily'){
+        client.commands.get('daily').execute(client, message, args, Discord)
     }
 })
 

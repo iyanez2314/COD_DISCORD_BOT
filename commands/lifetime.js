@@ -6,7 +6,7 @@ module.exports = {
     name: 'lifetime',
     description: 'This will look for the players wz stats',
     async execute(client, message, args, Discord){
-        if(!args[0]) return message.channel.send('Please enter a players gammer tag');
+        if(!args[0]) return message.channel.send('Please enter a players gamer tag');
         // if(!args[1]) return message.channel.send('Please enter the players platform');
 
         
