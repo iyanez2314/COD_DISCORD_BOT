@@ -19,13 +19,15 @@ module.exports = {
             .setColor('#BFCDEB')
             .setTitle('Life time stats')
             .addFields(
-                {name: 'Wins', value: data.data.lifetime.mode.br.properties.wins.toString(), inline: true},
-                {name: 'KD', value: data.data.lifetime.mode.br.properties.kdRatio.toString(), inline: true},
+                {name: 'Wins', value: data.data.lifetime.mode.br.properties.wins.toString()},
+                {name: 'KD', value: data.data.lifetime.mode.br.properties.kdRatio.toFixed(2).toString()},
                 {name: 'Kills', value: data.data.lifetime.mode.br.properties.kills.toString()},
-                {name: 'Games Played', value: data.data.lifetime.mode.br.properties.gamesPlayed.toString(), inline: true}
+                {name: 'Games Played', value: data.data.lifetime.mode.br.properties.gamesPlayed.toString()}
 
             )
-            .setFooter({ text: 'Created by cozy'})
+            .setFooter({ text: 'Created by cozy', iconURL: 'https://i.imgur.com/AfFp7pu.png'})
+            .setThumbnail('https://i.imgur.com/AfFp7pu.png')
+            .setTimestamp()
             message.channel.send({ embeds: [embed] }); 
         } catch(error){
             message.channel.send('There was a problem fetching this player')
