@@ -2,9 +2,9 @@
 # Call Of Duty Discord Bot 
 
 This project was something I had a lot of fun making. This discord bot 
-fetches information from call of duty and will dsiplay certain information.
+fetches information from call of duty API and will display certain information.
 This bot is meant for someone who owns a discord server and would like to check their own stats
-or maybe the stats of their friends. 
+or maybe the stats of their friends. Other cool things that this bot does is clear a certain number of messages in chat.
 
 
 # Photos
