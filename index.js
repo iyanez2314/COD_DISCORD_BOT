@@ -40,6 +40,8 @@ client.on('message', message => {
         client.commands.get('lifetime').execute(client, message, args, Discord)
     } else if (command === 'weekly'){
         client.commands.get('weekly').execute(client, message, args, Discord)
+    } else if(command === 'list'){
+        client.commands.get('list').execute(client, message, args, Discord)
     }
 })
 
