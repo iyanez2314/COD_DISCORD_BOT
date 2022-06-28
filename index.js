@@ -44,8 +44,10 @@ client.on('message', message => {
         client.commands.get('list').execute(client, message, args, Discord)
     } else if(command === 'clear'){
         client.commands.get('clear').execute(message, args)
-    } else if (command === 'combathistory'){
-        client.commands.get('combatHistory').execute(client, message, args, Discord)
+    } else if (command === 'rebirth'){
+        client.commands.get('rebirth').execute( message, args, Discord)
+    } else if (command === 'fortuneskeep'){
+        client.commands.get('fortunesKeep').execute(message, args, Discord)
     }
 })
 
