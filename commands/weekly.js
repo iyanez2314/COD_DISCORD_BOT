@@ -15,20 +15,20 @@ module.exports = {
 
          Object.entries(weeklyMode).forEach(item => {
              const embed = new Discord.MessageEmbed()
-             .addFields({
-                 name: `Weekly Stats for ${item[0]}`, value: ` Weekly Kills ${item[1].properties.kills}`,
-             })
+            .setTitle(`Weekly Stats for ${item[0]}`)
+            .addField('Kills', `${item[1].properties.kills.toString()}`, true)
             .addField('KD', `${item[1].properties.kdRatio.toFixed(2).toString()}`, true)
             .addField('Matches Played', `${item[1].properties.matchesPlayed.toString()}`, true)
             .addField('Headshot Percantage', `${item[1].properties.headshotPercentage.toFixed(2).toString()}`, true)
-            .addField('Headshots', `${item[1].properties.headshots.toString()}`)
+            .addField('Headshots', `${item[1].properties.headshots.toString()}`, true)
+            .setTimestamp()
+            .setFooter({ text: 'Made by cozy'})
              message.channel.send({ embeds: [embed] });
          });
 
          
         } catch (error){
-            console.log(error)
-            // message.channel.send('Something went wrong fetching this users information')
+            message.channel.send('Something went wrong fetching this users information')
         }
     }
 }
