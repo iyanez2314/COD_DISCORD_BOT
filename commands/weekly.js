@@ -14,8 +14,66 @@ module.exports = {
         const weeklyMode = data.data.weekly.mode
 
          Object.entries(weeklyMode).forEach(item => {
+             let mode = ''
+
+             if(item[0] === 'br_all'){
+                mode = 'All BR Modes'
+            }
+            // Caldera Mode Name Change
+            if(item[0] === 'br_brsolos'){
+                mode = ' Caldera Solos'
+            }
+
+            if(item[0] === 'br_brduos'){
+                mode = 'Caldera Duos'
+            }
+
+            if(item[0] === 'br_brtrios'){
+                mode = 'Caldera Trios'
+            }
+
+            if(item[0] === 'br_brquads'){
+                mode = 'Caldera Quads'
+            }
+            // ------------ End To Caldera Modes 
+
+            // Rebirth Game Mode Name Change 
+            if(item[0] === 'br_rebirth_rbrthsolos'){
+                mode = 'Rebirth Solos'
+            }
+
+            if(item[0] === 'br_rebirth_rbrthduos'){
+                mode = 'Rebirth Duos'
+            }
+
+            if(item[0] === 'br_rebirth_rbrthtrios'){
+                mode = 'Rebirth Trios'
+            }
+
+            if(item[0] === 'br_rebirth_rbrthquad'){
+                mode = 'Rebirth Quads'
+            }
+            // ----------------- End to rebirth modes
+
+            // Fortunes keep game mode name change
+            if(item[0] === 'br_rebirth_reverse_playlist_wz340/fortkeep_res_solo'){
+                mode = 'Fortunes Keep Solo'
+            }
+
+            if(item[0] === 'br_rebirth_reverse_playlist_wz340/fortkeep_res_duo'){
+                mode = 'Fortunes Keep Duo'
+            }
+            if(item[0] === 'br_rebirth_reverse_playlist_wz340/fortkeep_res_trio'){
+                mode = 'Fortunes Keep trio'
+            }
+
+            if(item[0] === 'br_rebirth_playlist_wz340/fortkeep_res_quad'){
+                mode = 'Fortunes Keep Quads'
+            }
+            // -------------------- End to fortunes keep modes
+            
              const embed = new Discord.MessageEmbed()
-            .setTitle(`Weekly Stats for ${item[0]}`)
+            .setTitle(`Weekly Stats for ${mode}`)
             .addField('Kills', `${item[1].properties.kills.toString()}`, true)
             .addField('KD', `${item[1].properties.kdRatio.toFixed(2).toString()}`, true)
             .addField('Matches Played', `${item[1].properties.matchesPlayed.toString()}`, true)
