@@ -20,7 +20,7 @@ module.exports = {
                 mode = 'All BR Modes'
             }
             // Caldera Mode Name Change
-            if(item[0] === 'br_brsolos'){
+            if(item[0] === 'br_brsolo'){
                 mode = ' Caldera Solos'
             }
 
@@ -71,7 +71,7 @@ module.exports = {
                 mode = 'Fortunes Keep Quads'
             }
             // -------------------- End to fortunes keep modes
-            
+
              const embed = new Discord.MessageEmbed()
             .setTitle(`Weekly Stats for ${mode}`)
             .addField('Kills', `${item[1].properties.kills.toString()}`, true)
