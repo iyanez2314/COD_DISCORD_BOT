@@ -10,7 +10,7 @@ module.exports ={
             {name: 'Lifetime stats', value: '!lifetime <YOUR ACTIVISION TAG GOES HERE#345678>'},
             {name: 'Weekly Stats', value: '!weekly <YOUR ACTIVISION TAG GOES HERE#345678>'},
         )
-        .setFooter({ text: 'Created by cozy', iconURL: 'https://i.imgur.com/AfFp7pu.png' })
+        .setFooter({ text: 'Created by cozy'})
         message.channel.send({ embeds: [newEmbed]});
     }
 }

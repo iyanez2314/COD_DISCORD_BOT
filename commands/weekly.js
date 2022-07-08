@@ -11,7 +11,11 @@ module.exports = {
             API.login(process.env.WZ_TOKEN)
             let data = await API.Warzone.fullData(args[0], API.platforms.Activision);
 
-        const weeklyMode = data.data.weekly.mode
+            // console.log(data.data.weekly.mode)
+
+            const weeklyMode = data.data.weekly.mode;
+
+            // console.log(weeklyMode);
 
          Object.entries(weeklyMode).forEach(item => {
              let mode = ''
@@ -86,6 +90,7 @@ module.exports = {
 
          
         } catch (error){
+            console.log(error)
             message.channel.send('Something went wrong fetching this users information')
         }
     }

@@ -34,9 +34,7 @@ client.on('message', message => {
 
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
-    } else if (command === 'cozy'){
-        client.commands.get('embed').execute(message, args, Discord)
-    } else if (command === 'lifetime'){
+    }  else if (command === 'lifetime'){
         client.commands.get('lifetime').execute(client, message, args, Discord)
     } else if (command === 'weekly'){
         client.commands.get('weekly').execute(message, args, Discord)
