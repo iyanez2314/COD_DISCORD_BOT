@@ -46,6 +46,8 @@ client.on('message', message => {
         client.commands.get('rebirth').execute( message, args, Discord)
     } else if (command === 'fortuneskeep'){
         client.commands.get('fortunesKeep').execute(message, args, Discord)
+    } else if (command === 'caldera'){
+        client.commands.get('caldera').execute(message, args, Discord)
     }
 })
 

@@ -56,7 +56,7 @@ module.exports = {
                        .addField('Matches Played', `${item[1].properties.matchesPlayed}`, true)
                        .addField('KD', `${item[1].properties.kdRatio.toFixed(2)}`, true)
                        .addField('Kills', `${item[1].properties.kills}`, true)
-                       .addField('Headshot Percantage', `${item[1].properties.headshotPercentage.toFixed(2)}`, true)
+                       .addField('Headshot Percentage', `${item[1].properties.headshotPercentage.toFixed(2)}`, true)
                        .addField('Headshots', `${item[1].properties.headshots}`, true)
                        message.channel.send({ embeds: [embed]})
                     })
