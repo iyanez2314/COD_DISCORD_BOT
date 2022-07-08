@@ -19,6 +19,7 @@ module.exports = {
             const brModes = data.data.weekly.mode
 
                  Object.entries(brModes).filter(mode => {
+
                     let newArray = [];
 
                      if(mode[0] === fortunesKeepSolo){
@@ -62,7 +63,7 @@ module.exports = {
                  });
 
         } catch (error){
-            message.channel.send('Something went wrong fetching this users information')
+            message.channel.send('You do not have any fortunes keep weekly stats at this time')
         }
     }
 }
