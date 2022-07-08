@@ -9,6 +9,8 @@ module.exports ={
         .addFields(
             {name: 'Lifetime stats', value: '!lifetime <YOUR ACTIVISION TAG GOES HERE#345678>'},
             {name: 'Weekly Stats', value: '!weekly <YOUR ACTIVISION TAG GOES HERE#345678>'},
+            {name: 'Weekly Rebirth Stats', value: '!rebirth <YOUR ACTIVISION TAG GOES HERE#345678> '},
+            {name: 'Weekly Caldera Stats', value: '!caldera <YOUR ACTIVISION TAG GOES HERE#345678> '},
             {name: 'Weekly Fortunes Keep Stats', value: '!fortuneskeep <YOUR ACTIVISION TAG GOES HERE#345678>'}
         )
         .setFooter({ text: 'Created by cozy'})

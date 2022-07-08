@@ -16,8 +16,6 @@ module.exports = {
 
             const rebirthModes = output.data.weekly.mode
 
-            console.log(rebirthModes)
-
             Object.entries(rebirthModes).filter(mode => {
                 let newArray = [];
 
@@ -63,7 +61,6 @@ module.exports = {
                 })
             })
         } catch (error){
-            console.log(error)
             message.channel.send('Something went wrong fetching this users information')
         }
     }

@@ -75,7 +75,6 @@ module.exports = {
             });
 
         } catch(error){
-            console.log(error)
             message.channel.send('There was an error fetching this users information')
         }
     }
