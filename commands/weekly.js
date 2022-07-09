@@ -11,11 +11,8 @@ module.exports = {
             API.login(process.env.WZ_TOKEN)
             let data = await API.Warzone.fullData(args[0], API.platforms.Activision);
 
-            // console.log(data.data.weekly.mode)
-
             const weeklyMode = data.data.weekly.mode;
 
-            // console.log(weeklyMode);
 
          Object.entries(weeklyMode).forEach(item => {
              let mode = ''
@@ -77,6 +74,7 @@ module.exports = {
             // -------------------- End to fortunes keep modes
 
              const embed = new Discord.MessageEmbed()
+             .setColor('#eab676')
             .setTitle(`Weekly Stats for ${mode}`)
             .addField('Kills', `${item[1].properties.kills.toString()}`, true)
             .addField('KD', `${item[1].properties.kdRatio.toFixed(2).toString()}`, true)
