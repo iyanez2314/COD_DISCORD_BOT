@@ -75,7 +75,9 @@ module.exports = {
 
              const embed = new Discord.MessageEmbed()
              .setColor('#eab676')
-            .setTitle(`Weekly Stats for ${mode}`)
+            .setTitle(`${args[0]}`)
+            .setDescription(`Weekly Stats for ${mode}`)
+            .setThumbnail(message.author.avatarURL())
             .addField('Kills', `${item[1].properties.kills.toString()}`, true)
             .addField('KD', `${item[1].properties.kdRatio.toFixed(2).toString()}`, true)
             .addField('Matches Played', `${item[1].properties.matchesPlayed.toString()}`, true)
@@ -85,8 +87,6 @@ module.exports = {
             .setFooter({ text: 'Made by cozy'})
              message.channel.send({ embeds: [embed] });
          });
-
-         
         } catch (error){
             console.log(error)
             message.channel.send('Something went wrong fetching this users information')

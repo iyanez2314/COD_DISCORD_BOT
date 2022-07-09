@@ -7,10 +7,6 @@ module.exports = {
     description: 'This will look for the players wz stats',
     async execute(client, message, args, Discord){
         if(!args[0]) return message.channel.send('Please enter a players gamer tag');
-        // if(!args[1]) return message.channel.send('Please enter the players platform');
-
-        
-
         try {
             API.login(process.env.WZ_TOKEN);
             let data = await API.Warzone.fullData(args[0],API.platforms.Activision)
@@ -23,8 +19,9 @@ module.exports = {
             let lifetimeTopTwentyFive = data.data.lifetime.mode.br.properties.topTwentyFive.toString();
 
             const embed = new Discord.MessageEmbed()
-            .setColor('#BFCDEB')
+            .setColor('#eab676')
             .setTitle('Lifetime Stats')
+            .setThumbnail(message.author.avatarURL())
             .addField('Lifetime Wins', `${lifetimeWins}`, true)
             .addField('Lifetime KD', `${lifetimeKd}`, true)
             .addField('Lifetime Kills', `${lifetimeKills}`, true)

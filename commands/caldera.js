@@ -61,8 +61,10 @@ module.exports = {
                     let headshots = item[1].properties.headshots
                     
                     const embed = new Discord.MessageEmbed()
-                    .setColor('#AD0099')
-                    .setTitle(`Weekly stats for ${gameModeNameChange}`)
+                    .setColor('#eab676')
+                    .setTitle(`${args[0]}`)
+                    .setDescription(`Weekly stats for ${gameModeNameChange}`)
+                    .setThumbnail(message.author.avatarURL())
                     .addField('Matches Played', `${matchesPlayed}`, true)
                     .addField('KD', `${kdRatio}`, true)
                     .addField('Kills', `${kills}`, true)

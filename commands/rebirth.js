@@ -49,14 +49,17 @@ module.exports = {
                     let headshots = item[1].properties.headshots
 
                     const embed = new Discord.MessageEmbed()
-                    .setColor('#65A2AD')
-                    .setTitle(`Weekly Stats for ${gameModeNameChange}`)
+                    .setColor('#eab676')
+                    .setTitle(`${args[0]}`)
+                    .setDescription(`Weekly Stats for ${gameModeNameChange}`)
+                    .setThumbnail(message.author.avatarURL())
                     .addField('Matches Played',`${matchesPlayed}`,true)
                     .addField('KD',`${kdRatio}`,true)
                     .addField('Kills',`${kills}`,true)
                     .addField('Headshot Percentage',`${headshotPercentage}`,true)
                     .addField('Headshots',`${headshots}`, true)
-                    .setFooter({ text: 'Created by cozy'})
+                    .setTimestamp()
+                    .setFooter({ text: 'Created By Cozy'})
                     message.channel.send({ embeds: [embed] });
                 })
             })

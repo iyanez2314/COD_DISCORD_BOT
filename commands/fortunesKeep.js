@@ -52,12 +52,17 @@ module.exports = {
                             gameModeNameChange = 'Fortunes Keep Quads'
                         }
                        const embed = new Discord.MessageEmbed()
-                       .setTitle(`Weekly Stats for ${gameModeNameChange}`)
+                       .setColor('#eab676')
+                       .setTitle(`${args[0]}`)
+                       .setDescription(`Weekly Stats for ${gameModeNameChange}`)
+                       .setThumbnail(message.author.avatarURL())
                        .addField('Matches Played', `${item[1].properties.matchesPlayed}`, true)
                        .addField('KD', `${item[1].properties.kdRatio.toFixed(2)}`, true)
                        .addField('Kills', `${item[1].properties.kills}`, true)
                        .addField('Headshot Percentage', `${item[1].properties.headshotPercentage.toFixed(2)}`, true)
                        .addField('Headshots', `${item[1].properties.headshots}`, true)
+                       .setTimestamp()
+                       .setFooter({ text: 'Made By Cozy'})
                        message.channel.send({ embeds: [embed]})
                     })
                  });
