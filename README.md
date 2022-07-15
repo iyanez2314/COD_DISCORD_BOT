@@ -2,11 +2,11 @@
 # Call Of Duty Discord Bot 
 
 This is a Call Of Duty Discord bot you are able to look up your lifetime stats, Weekly, last match stats and Specific game mode stats.
-This bot is made for someone who is tired of looking up your stats on the internet all the time and wants easy access to those stats with a few commands you will be able to see what kind of KD you had on a certain game mode or even how many kills you had on your last match. 
+This bot is made for someone who is tired of looking up their stats on the internet all the time and wants easy access to those stats with a few commands you will be able to see what kind of KD you had on a certain game mode or even how many kills you had on your last match. 
 
 ## API Reference
 
-The API use for this project was https://www.npmjs.com/package/call-of-duty-api. 
+The API used for this project was https://www.npmjs.com/package/call-of-duty-api. 
 
 # Photos of the features
 
