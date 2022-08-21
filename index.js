@@ -50,6 +50,8 @@ client.on('message', message => {
         client.commands.get('caldera').execute(message, args, Discord)
     } else if(command === 'lastmatch'){
         client.commands.get('lastmatch').execute(message, args, Discord)
+    } else if (command === 'titanium'){
+        client.commands.get('titaniumTrials').execute(message, args, Discord)
     }
 })
 

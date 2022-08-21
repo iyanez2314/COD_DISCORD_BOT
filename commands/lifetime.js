@@ -18,6 +18,8 @@ module.exports = {
             let lifetimeTopFive = data.data.lifetime.mode.br.properties.topFive.toString();
             let lifetimeTopTwentyFive = data.data.lifetime.mode.br.properties.topTwentyFive.toString();
 
+            console.log(data.data.lifetime.mode.br)
+
             const embed = new Discord.MessageEmbed()
             .setColor('#eab676')
             .setTitle('Lifetime Stats')

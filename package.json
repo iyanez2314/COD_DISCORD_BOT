@@ -13,5 +13,8 @@
     "call-of-duty-api": "^3.2.0",
     "discord.js": "^13.8.0",
     "dotenv": "^16.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
