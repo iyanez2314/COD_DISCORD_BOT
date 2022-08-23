@@ -32,6 +32,8 @@ client.on('message', message => {
     const args = message.content.slice(PREFIX.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+    // TODO: Figure out how to add this to another file so this can be alot more cleaner
+    
     if(command === 'ping'){
         client.commands.get('ping').execute(message, args);
     }  else if (command === 'lifetime'){

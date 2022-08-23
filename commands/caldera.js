@@ -39,19 +39,19 @@ module.exports = {
                     let gameModeNameChange = ''
 
                     if(item[0] === calderaSolos){
-                        gameModeNameChange = 'Caldera Solos'
+                        gameModeNameChange += 'Caldera Solos'
                     }
 
                     if(item[0] === calderDuos){
-                        gameModeNameChange = 'Caldera Duos'
+                        gameModeNameChange += 'Caldera Duos'
                     };
 
                     if(item[0] === calderaTrios){
-                        gameModeNameChange = 'Caldera Trios'
+                        gameModeNameChange += 'Caldera Trios'
                     };
 
                     if(item[0] === calderQuads){
-                        gameModeNameChange = 'Calder Quads'
+                        gameModeNameChange += 'Calder Quads'
                     }
 
                     let matchesPlayed = item[1].properties.matchesPlayed

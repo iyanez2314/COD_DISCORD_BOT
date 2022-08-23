@@ -1,5 +1,6 @@
 require('dotenv').config()
 const API = require('call-of-duty-api');
+const modes = require('../Game-Modes/gamemodes')
 
 module.exports = {
     name: 'lastmatch',
@@ -11,9 +12,8 @@ module.exports = {
             API.login(process.env.WZ_TOKEN)
             let output = await API.Warzone.combatHistory(args[0], API.platforms.Activision);
 
+
             const lastMatchStats = output.data.matches[0]
-            let lastMatchMap = lastMatchStats.map
-            let lastMatchMode = lastMatchStats.mode 
             let lastMatchPlacement = lastMatchStats.playerStats.teamPlacement
             let lastMatchKills = lastMatchStats.playerStats.kills 
             let lastMatchKd = lastMatchStats.playerStats.kdRatio.toFixed(2)
@@ -22,11 +22,24 @@ module.exports = {
             let lastMatchGulagDeaths = lastMatchStats.playerStats.gulagDeaths
             let lastMatchDamageDone = lastMatchStats.playerStats.damageDone 
             let lastMatchDamageTaken = lastMatchStats.playerStats.damageTaken
+            let matchMap = lastMatchStats.mode;
+
+            let gameModeName = ''
+
+            modes.forEach((mode) => {
+               
+                for (let gameMode in mode){
+                    if(matchMap === gameMode){
+                        gameModeName += mode[gameMode]
+                    }
+                    // console.log(`${gameMode}: ${mode[gameMode]}`)
+                }
+            });
 
             const embed = new Discord.MessageEmbed()
             .setColor('#eab676')
             .setTitle(`${args[0]}`)
-            .setDescription('Last Match Played')
+            .setDescription(`Last match played on ${gameModeName}`)
             .setThumbnail(message.author.avatarURL())
             .addField('Placement', `${lastMatchPlacement}`, true)
             .addField('Kills', `${lastMatchKills}`, true)

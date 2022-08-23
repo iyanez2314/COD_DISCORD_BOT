@@ -1,5 +1,6 @@
 require('dotenv').config();
 const API = require("call-of-duty-api");
+const modes = require('../Game-Modes/gamemodes');
 
 module.exports = {
     name: 'weekly',
@@ -12,6 +13,18 @@ module.exports = {
             let data = await API.Warzone.fullData(args[0], API.platforms.Activision);
 
             const weeklyMode = data.data.weekly.mode;
+
+            console.log(weeklyMode)
+            
+            let gameModeNameChange = ''
+
+            modes.forEach((mode) => {
+                for(let gameMode in mode){
+                    if(weeklyMode === gameMode){
+                        gameModeNameChange += mode[gameMode]
+                    }
+                }
+            })
 
 
          Object.entries(weeklyMode).forEach(item => {
@@ -72,6 +85,19 @@ module.exports = {
                 mode = 'Fortunes Keep Quads'
             }
             // -------------------- End to fortunes keep modes
+
+            // -- Titanium Trials 
+            if(item[0] === "br_tdbd_playlist_wz345/cal_titanium_quads"){
+                mode = 'Titanium Trials Duos'
+            }
+               if(item[0] === "br_tdbd_playlist_wz345/cal_titanium_duos"){
+                   mode = 'Titanium Trials Quads'
+            }
+            // End to titanium trials
+
+            if(item[0] === 'br_gold_war_playlist_wz340/gld_pldr'){
+                mode += 'Golden Plunder'
+            }
 
              const embed = new Discord.MessageEmbed()
              .setColor('#eab676')
