@@ -64,7 +64,8 @@ module.exports = [
     "br_rebirth_reverse_playlist_wz340/fortkeep_res_solo": "Fortunes Keep Resurgence Solos",
     "br_rumble_playlist_wz340/storage_town_clash_title": "Storage Town Clash",
     "br_rebirth_playlist_wz340/fortkeep_extreme": "Fortunes Keep Extreme",
-    "br_tdbd_playlist_wz345/cal_titanium_quads": "Titanium Trials Quads"
+    "br_tdbd_playlist_wz345/cal_titanium_quads": "Titanium Trials Quads",
+    "br_tdbd_playlist_wz345/cal_titanium_duos": "Titanium Trials Duos"
   }
 ]
 

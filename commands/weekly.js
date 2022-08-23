@@ -77,8 +77,8 @@ module.exports = {
             if(item[0] === 'br_rebirth_reverse_playlist_wz340/fortkeep_res_duo'){
                 mode = 'Fortunes Keep Duo'
             }
-            if(item[0] === 'br_rebirth_reverse_playlist_wz340/fortkeep_res_trio'){
-                mode = 'Fortunes Keep trio'
+            if(item[0] === 'br_rebirth_playlist_wz340/fortkeep_res_trios'){
+                mode = 'Fortunes Keep trios'
             }
 
             if(item[0] === 'br_rebirth_playlist_wz340/fortkeep_res_quad'){

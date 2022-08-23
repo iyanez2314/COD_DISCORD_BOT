@@ -32,7 +32,6 @@ module.exports = {
                     if(matchMap === gameMode){
                         gameModeName += mode[gameMode]
                     }
-                    // console.log(`${gameMode}: ${mode[gameMode]}`)
                 }
             });
 
